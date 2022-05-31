@@ -1,0 +1,68 @@
+<%-include('../Includes/header.ejs')%>
+<link rel="stylesheet" href="/CSS/singleProduct.scss" type="text/css">
+</head>
+<body>
+
+    <%-include('../Includes/navigation.ejs')%>
+        <h2 class="heading">Product Details</h2>
+       <section class="product">
+        <div class="product__photo">
+          <div class="photo-container">
+            <div class="photo-main">     
+              <img src="../../<%=data.pImage%>" height="485" width="500" alt="img">
+            </div>
+          </div>
+        </div>
+        <div class="product__info">
+          <div class="title">
+            <h1><%=data.pTitle %></h1>
+            COD:<span style="color:green"> Free</span>
+          </div>
+          <div class="rating">
+          <div class="stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+
+
+          </div>
+          <span class="review-no">41 reviews</span>
+        </div>
+          <div class="price">
+            PRICE: <span>₹<%=data.pPrice %></span>
+          </div>
+          <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+          <h5>SIZES:
+            <span class="sizes size" data-toggle="tooltip" title="small">s</span>
+            <span class="sizes size" data-toggle="tooltip" title="medium">m</span>
+            <span class="sizes size" data-toggle="tooltip" title="large">l</span>
+            <span class="sizes size" data-toggle="tooltip" title="xtra large">xl</span>
+          </h5>
+          <h5 class="colors">colors:
+            <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+            <span class="color green"></span>
+            <span class="color blue"></span>
+          </h5>
+          <div class="description">
+            <h3>DESCRIPTION:</h3>
+    
+              <p><%=data.pDescription %></p>
+             
+      
+          </div>
+         
+          <form action="/cart" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrf_token %>">
+            <button class="buy--btn" type="submit">Add to Cart</button>  <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+            <input type="hidden" name="productId" value="<%= data._id %>">
+        </form>
+        
+        </div>
+      </section>
+      
+      <footer>
+        <p>Design from Sayan &copy;2022</p>
+      </footer>
+      <%-include('../Includes/footer.ejs')%>

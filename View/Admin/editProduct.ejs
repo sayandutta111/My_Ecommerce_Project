@@ -1,0 +1,31 @@
+<%-include('../Includes/header.ejs')%>
+<link rel="stylesheet" href="/CSS/Edit_Product.css">
+</head>
+<body>
+
+<%-include('../Includes/navigation.ejs')%>
+  <div class="form">
+    <form action="/postEditedValue" enctype="multipart/form-data" method="POST">
+      <input type="hidden" name="_csrf" value="<%=csrf_token%>">
+    <div class="title">Welcome</div>
+    <div class="subtitle">Let's edit your product!</div>
+    <div class="input-container ic1">
+      <input id="title" class="input" type="text" placeholder="Title" name="p_title" value="<%=data.pTitle %>"/>
+    </div>
+    <div class="input-container ic2">
+      <input id="price" class="input" type="text" placeholder="Price" name="p_price" value="<%=data.pPrice %>" />
+    </div>
+    <div class="input-container ic2">
+      <input id="description" class="input" type="text" placeholder="Description" name="p_desc"  value="<%=data.pDescription %>"/> 
+    </div><br />
+    <input type="hidden" name="prod_id" value="<%=data._id%>">
+    <label for="img">Product Image:</label>
+    <input type="file" id="p_img" name="p_img" placeholder="Upload Image" value="<%=data.pImage%>" />
+    <input type="hidden" name="oldUrl" value="<%=data.pImage%>" />
+    <img src="../../<%=data.pImage%>" alt="img" width="60"><br>
+    <button type="text" class="submit">Update</button>
+  </form>
+  </div>
+
+
+<%-include('../Includes/footer.ejs')%>

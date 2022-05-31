@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <%if(!isAuthenticated){%>
+        <li class="nav-item">
+          <a
+            class="nav-link <%= path === '/addProducts' ? 'active' : '' %>"
+            href="/addProducts"
+            >Add Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <%= path === '/user/products' ? 'active' : '' %>"
+            href="/user/products"
+            >User Products</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link <%= path === '/admin/products' ? 'active' : '' %>"
+            href="/admin/products"
+          >
+            Admin Products</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link <%= path === '/registration' ? 'active' : '' %>"
+            href="/registration"
+          >
+            Reg Form</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <%= path === '/login' ? 'active' : '' %>"
+            href="/login"
+          >
+            Login Form</a
+          >
+        </li>
+      </ul>
+      <%}%> <%if(isAuthenticated){%>
+      <li class="nav-item">
+        <a
+          class="nav-link <%= path === '/addProducts' ? 'active' : '' %>"
+          href="/addProducts"
+          >Add Products</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link <%= path === '/user/products' ? 'active' : '' %>"
+          href="/user/products"
+          >User Products</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link <%= path === '/admin/products' ? 'active' : '' %>"
+          href="/admin/products"
+        >
+          Admin Products</a
+        >
+      </li>
+      <li class="nav__item">
+        <a class="nav-link <%= path === '/cart' ? 'active' : '' %>" href="/cart"
+          >Cart</a
+        >
+      </li>
+      <li class="nav__item">
+        <a
+          class="nav-link <%= path === '/orders' ? 'active' : '' %>"
+          href="/orders"
+          >Orders</a
+        >
+      </li>
+      <li class="nav-item">
+        <button class="logout" type="submit">
+          <a class="nav-link" href="/logout"> Logout</a>
+        </button>
+      </li>
+
+      <%}%>
+    </div>
+  </div>
+</nav>

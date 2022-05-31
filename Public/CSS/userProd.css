@@ -1,0 +1,35 @@
+.card {
+  margin-top: 1vmax;
+  margin: 10px;
+  background-color: rgb(42, 78, 42);
+  color: #ffffff;
+  height: 75vh;
+}
+.row {
+  margin-left: 3rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url("https://images.unsplash.com/photo-1508615039623-a25605d2b022?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bG9naW58ZW58MHx8MHx8&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  height: 105vh;
+}
+.searchbar {
+  margin-left: 15px;
+  margin-top: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.searchbtn {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.card-img-top {
+  height: 290px;
+  background-size: cover;
+}

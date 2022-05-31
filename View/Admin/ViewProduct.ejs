@@ -1,0 +1,46 @@
+<%-include('../Includes/header.ejs')%>
+    <link rel="stylesheet" href="/CSS/table.css">
+    </head>
+
+    <body>
+        <%-include('../Includes/navigation.ejs')%>
+        <%if(data.length>0){ %>
+      
+                    <table>
+                      
+                        <tr>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            
+                        </tr>
+                  
+                         <%for(let x of data){%>
+                            
+                              <tr>
+                            
+                               <td><%=x.pTitle %></td>
+                               <td>₹<%=x.pPrice %></td>
+                               <td><%=x.pDescription %></td>
+                              <td><img src="../../<%=x.pImage%>" width="60"></td>
+                               <td><a href="/editProduct/<%=x._id%>">Edit</a></td>
+                               <td><a href="/deleteProductAdmin/<%=x._id%>">Delete</a></td>
+                               <td><form action="/postDeletedValue" method="post">
+                                   <input type="hidden" name="delete" value="<%=x._id%>">
+                                   <button type="submit">Delete</button>
+                               </form>
+                            </td>
+                               </tr>
+                               
+                               <%}%>
+                               
+                           </table>
+                          
+                   
+                        <%}else{%>
+                            <h2>Sorry! Data Not found.</h2>
+                            <%}%>
+
+                                <%-include('../Includes/footer.ejs')%>
+                                

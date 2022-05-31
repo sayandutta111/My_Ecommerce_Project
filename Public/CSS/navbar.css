@@ -1,0 +1,26 @@
+.active {
+  text-decoration: underline;
+  color: #dcca87 !important;
+}
+.logout {
+  margin-left: 44rem;
+  border: 2px solid rgba(51, 85, 72, 0.4);
+  border-radius: 15px;
+  background-color: #07a898;
+}
+.navbar {
+  background-color: #00695c;
+}
+.nav-link,
+.navbar-brand {
+  color: #fff;
+}
+.nav-link:hover {
+  color: #dcca87;
+}
+.navbar-brand:hover {
+  color: #dcca87;
+}
+body {
+  white-space: nowrap;
+}

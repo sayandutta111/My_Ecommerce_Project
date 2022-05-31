@@ -1,0 +1,56 @@
+<%-include('../Includes/header.ejs')%>
+<link rel="stylesheet" href="../../CSS/cart.css"
+</head>
+<body>
+
+    <%-include('../Includes/navigation.ejs')%>
+        <main>
+            <ul class="cart__item-list">
+                <% products.forEach(p => { %>
+                    <li class="cart__item">
+                        <img src="../../<%=p.productId.pImage%>" height="80" width="100" alt="img" style="margin-left:-2rem">
+                        <h1><%= p.productId.pTitle %></h1>
+                        <h1>₹<%= p.productId.pPrice %></h1>
+                        <div class="counter">
+                           
+                        <form action="/addOne" method="post">
+                                <input type="hidden" name="_csrf" value="<%= csrf_token %>">
+                                <button class="btn-success" type="submit" style="margin-top:14px;margin-right:9px"">+</button>
+                            <input type="hidden" name="productId" value="<%= p.productId._id%>">
+                        </form>
+
+                             <h2>Quantity: <%= p.quantity %></h2>
+
+                             <form action="/removeOne" method="POST">
+                                <input type="hidden" name="_csrf" value="<%= csrf_token %>">
+                                
+                                <button class="btn-danger" type="submit" style="margin-top:14px;margin-left:9px" >-</button>
+                                
+                                <input type="hidden" value="<%= p.productId._id %>" name="productId">
+                           
+                            </form>
+                       
+                        </div>
+                    
+                    </li>
+                <% }) %>
+            </ul>
+            <div class="centered">
+                <h2>Total: ₹<%= totalSum %></h2>
+            </div>
+            <div class="centered">
+                <form action="/create-order" method="POST">
+                    <script
+                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="pk_test_ygYx6vbLWjTnKZX9m9Kaw7kf00TxARzp7b"
+                        data-amount="<%= totalSum * 100 %>"
+                        data-name="Your order"
+                        data-description="All ordered items"
+                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                        data-locale="auto"
+                        data-currency="INR">
+                    </script>
+                </form>
+            </div>
+        </main>
+        <%-include('../Includes/footer.ejs')%>

@@ -1,0 +1,42 @@
+<%-include('../Includes/header.ejs')%>
+<link rel="stylesheet" href="/CSS/Reg_Log_Form.css">
+</head>
+<body>
+
+<%-include('../Includes/navigation.ejs')%>
+
+<div class="container mt-5 mb-5">
+  <form action="/regPostValue" method="POST">
+    <input type="hidden" name="_csrf" value="<%=csrf_token%>">
+  <div class="row d-flex align-items-center justify-content-center">
+      <div class="col-md-6">
+          
+          <div class="card px-5 py-5"> 
+            <h1>Registration Form</h1>
+              
+           
+              <div class="form-input"> <input type="text" class="form-control" placeholder="First name" name="u_fname"> </div>
+              <div class="form-input"> <input type="text" class="form-control" placeholder="Last name" name="u_lname"> </div>
+              <div class="form-input"> <input type="text" class="form-control" placeholder="Email address" name="u_email"> </div>
+              <div class="form-input"> <input type="password" class="form-control" placeholder="Password" name="u_pass"> </div>
+              <%if(error.length > 0) {
+                %>
+                <%for(let err of error) {
+                  %>
+                  <div><h6 style="color:red;"><%=err.msg%></h6></div>
+                <%}%>
+              <%}%>
+              <%if(errorMsg){%>
+                <div class="errorMessage"><%= errorMsg%></div>
+                <%}%>
+                <div class="form-check"> 
+                  <input class="form-check-input" type="checkbox"  id="flexCheckChecked" >
+                   <label class="form-check-label" for="flexCheckChecked"> I agree all the statements </label> </div> 
+              <button class="btn btn-primary mt-4 signup" value="submit">Submit</button>
+              
+          </div>
+      </div>
+  </div>
+</form>
+</div>
+<%-include('../Includes/footer.ejs')%>
