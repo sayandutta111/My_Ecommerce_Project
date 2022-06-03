@@ -13,6 +13,9 @@
                             <th>Price</th>
                             <th>Description</th>
                             <th>Image</th>
+                            <th>Edit</th>
+                            <th>Get</th>
+                            <th>Post</th>
                             
                         </tr>
                   
@@ -28,6 +31,7 @@
                                <td><a href="/deleteProductAdmin/<%=x._id%>">Delete</a></td>
                                <td><form action="/postDeletedValue" method="post">
                                    <input type="hidden" name="delete" value="<%=x._id%>">
+                                   <input type="hidden" name="_csrf" value="<%= csrf_token %>">
                                    <button type="submit">Delete</button>
                                </form>
                             </td>

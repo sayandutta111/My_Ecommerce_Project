@@ -31,7 +31,7 @@ const UserSchema = new SchemaVariable({
         quantity: {
           type: Number,
           required: true,
-          // min: [1, "Quantity can not be less than 1."],
+          min: [1, "Quantity can not be less than 1."],
         },
       },
     ],
@@ -75,6 +75,7 @@ UserSchema.methods.removeOne = function (product) {
     newQuantity = this.cart.items[cartProductIndex].quantity - 1;
     updatedCartItems[cartProductIndex].quantity = newQuantity;
   }
+
   const updatedCart = {
     items: updatedCartItems,
   };
